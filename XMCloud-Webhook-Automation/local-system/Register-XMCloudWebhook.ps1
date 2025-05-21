@@ -1,3 +1,9 @@
+#This PowerShell script, is designed to interact with the Sitecore Edge API for managing webhooks. It includes functions to retrieve environment variables 
+# from a .env file, fetch existing webhooks (GetWebhookListing), register new webhooks (RegisterWebhook), and obtain an OAuth bearer token (GetAccessToken). 
+# The script uses the Invoke-WebRequest cmdlet to make HTTP requests to the Sitecore Edge API, handling authentication and error responses.
+# The script is structured to allow for easy modification and reuse, with clear parameter definitions and error handling.
+
+
 $ErrorActionPreference = "Stop"
 $EnvFileName = ".env"  # Default name of the .env file
 $bearerToken = ""  # Initialize bearer token variable
@@ -341,8 +347,8 @@ if (-not $bearerToken -or [string]::IsNullOrWhiteSpace($bearerToken)) {
     $bearerToken=GetAccessToken -filePath $EnvFileName
 }
 
+# Get the list of existing regsistered webhooks
 GetWebhookListing -filePath $EnvFileName
 
-#RegisterWebhook -filePath $EnvFileName -webHookName "CM_HOST" -webHookURL "https://example.com/webhook" -createdBy "Admin" -functionKey "your_function_key"
-
-#RegisterWebhook -filePath $EnvFileName -webHookName "Amit Kumar GetUpdate2" -webHookURL "https://amitkumar.com/GetUpdate2" -createdBy "Amit Kumar" -functionKey "15343"
+# Register the webhook
+# RegisterWebhook -filePath $EnvFileName -webHookName "Amit Kumar GetUpdate" -webHookURL "https://amitkumar.com/GetUpdate" -createdBy "Amit Kumar" -functionKey "1234"
