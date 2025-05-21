@@ -1,2 +1,2 @@
-# XMCloud Webhook Automation
-Automate Sitecore XM Cloud webhook registration with a PowerShell script and Azure Pipelines YAML. This repository provides a reusable solution for generating access tokens and registering webhooks with the Experience Edge API, streamlining content management across environments.
+# Sitecore Automation
+This repository contains a collection of automation scripts and code snippets designed to streamline and enhance Sitecore development and deployment processes. It includes tools for automating common tasks, improving efficiency, and ensuring best practices in Sitecore projects. Contributions and collaboration are welcome to expand and refine these resources
