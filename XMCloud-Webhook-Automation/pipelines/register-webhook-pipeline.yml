@@ -1,0 +1,34 @@
+# This YAML pipeline file, is designed to automate the execution of scripts and tasks in an Azure DevOps environment. 
+# It includes steps to trigger builds, check PowerShell versions, and execute PowerShell scripts. The pipeline is configured to run on the 
+# latest Ubuntu virtual machine image and supports debugging with system.debug. With its modular structure, this pipeline simplifies the process of building, 
+# testing, and deploying projects while ensuring compatibility with Windows PowerShell 5.1.
+
+# Starter pipeline
+
+trigger:
+- feature/AZURE-DEVOPS
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  system.debug: true
+  
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: $PSVersionTable
+  displayName: 'Check PowerShell Version'
+  
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+
+- task: PowerShell@2
+  displayName: 'Run PowerShell Script with Windows PowerShell 5.1'
+  inputs:
+    filePath: './Azure-DevOps-Get-XMC-Webhook-Listing-Pipeline.ps1'
+    failOnStderr: true
+    pwsh: false  # Use Windows PowerShell instead of PowerShell Core
